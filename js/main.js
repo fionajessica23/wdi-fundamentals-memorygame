@@ -43,9 +43,10 @@ var flipCard = function () {
 
 	this.setAttribute("src", cards[cardId].cardImage);
 
-
+	console.log(cardsInPlay.length);
 	if (cardsInPlay.length === 2) {
 		checkForMatch();
+		cardsInPlay = [];
 	}; 
 };
 
@@ -61,3 +62,10 @@ var createBoard = function () {
 
 createBoard();
  
+var newSet = function () {
+	document.getElementById("game-board").innerHTML = "";
+	createBoard();
+};
+
+var button = document.getElementById("reset");
+button.addEventListener("click", newSet);
